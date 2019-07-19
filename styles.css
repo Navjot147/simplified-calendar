@@ -1,0 +1,96 @@
+#calendar .month-container {
+    width: 50%;
+    margin: 20px auto 0 auto;
+}
+
+.header {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #e2e2e2;
+}
+
+.days-container,
+.day-name {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+}
+
+.day-name span:nth-child(1) {
+    border-left: 1px solid #e2e2e2;
+}
+
+.day-name span {
+    border-bottom: 1px solid #e2e2e2;
+    border-right: 1px solid #e2e2e2;
+}
+
+.day-cell:nth-child(7n) {
+    border-right: 1px solid #e2e2e2;
+}
+
+.day-cell {
+    height: 100px;
+    text-align: center;
+    border-bottom: 1px solid #e2e2e2;
+    border-left: 1px solid #e2e2e2;
+}
+
+.display-none {
+    display: none;
+}
+
+.popup-overlay {
+    position: fixed;
+    width: 100%;
+    display: none;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.popup-overlay .info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40%;
+    height: auto;
+    padding: 20px;
+    background: white;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.popup-overlay .info div {
+    margin: 20px 0px;
+}
+
+.events {
+    overflow: scroll;
+    height: 70%;
+}
+
+.events .event {
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+    margin: 0 auto;
+    width: 90px;
+    border: 1px solid #e2e2e2;
+}
+
+.events .event label {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.error-block {
+    text-align: center;
+    margin: 0 auto;
+    color: red;
+}
