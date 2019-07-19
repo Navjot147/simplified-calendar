@@ -16,12 +16,18 @@
   <div id="popup" class="popup-overlay">
     <div class="info">
       <h2>Create Event</h2>
-      <div class="error-block" id="genericError"></div>
-      <div><label>Name </label><input id="txtNameEvent" type="text" maxlength="100" /></div>
-      <div><label>Date </label><input id="currentDate" type="text" readonly/></div>
-      <div>
-        <label>Start </label><input id="txtStartTime" type="text" placeholder="hh:mm am/pm" /> <label>End </label><input
-          id="txtEndTime" type="text" placeholder="hh:mm am/pm" />
+      <span class="error-block" id="genericError"></span>
+      <img id="imgCloseIcon" src="https://img.icons8.com/small/16/000000/close-window.png" />
+      <div class="name"><label>Name </label><input id="txtNameEvent" type="text" maxlength="100" /></div>
+      <div class="date"><label>Date </label><input id="currentDate" type="text" readonly/></div>
+      <div class="start-end">
+        <div class="start">
+          <label>Start </label><input id="txtStartTime" type="text" placeholder="hh:mm am/pm" />
+        </div>
+        <div class="end">
+          <label>End </label><input id="txtEndTime" type="text" placeholder="hh:mm am/pm" />
+        </div>
+
       </div>
       <div>
         <button id="saveEvent">Save Event</button>

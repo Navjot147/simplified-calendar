@@ -42,6 +42,7 @@
     border-bottom: 1px solid #e2e2e2;
     border-left: 1px solid #e2e2e2;
 }
+
 .day-cell .date-text {
     padding-right: 10px;
 }
@@ -75,8 +76,35 @@
     -ms-transform: translate(-50%, -50%);
 }
 
-.popup-overlay .info div {
+.popup-overlay .info>div {
     margin: 20px 0px;
+}
+
+.popup-overlay .name,
+.popup-overlay .date {
+    width: 55%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.popup-overlay .name input,
+.popup-overlay .date input {
+    width: 70%;
+}
+
+.popup-overlay .start-end {
+    width: 90%;
+    display: flex;
+}
+
+.popup-overlay .start,
+.popup-overlay .end {
+    flex: 1;
+}
+
+.popup-overlay .start input,
+.popup-overlay .end input {
+    margin-left: 21%
 }
 
 .events {
@@ -104,4 +132,12 @@
     text-align: center;
     margin: 0 auto;
     color: red;
+}
+
+#imgCloseIcon {
+    position: absolute;
+    top: 5px;
+    cursor: pointer;
+    right: 3px;
+    padding: 10px;
 }

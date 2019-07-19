@@ -81,12 +81,22 @@ const App = (function () {
     function _initEvent() {
       document.getElementById("saveEvent").addEventListener("click", _saveEvent);
       document.getElementById("cancelEvent").addEventListener("click", _hideAddEventPopUp);
+      document.getElementById("imgCloseIcon").addEventListener("click", _hideAddEventPopUp);
     }
 
     function _checkFormValid(values) {
       const { startTime, endTime, date, name } = values;
       const isStartDateValid = /^(1[0-2]|0?[1-9]):([0-5]?[0-9]) ([AP]M|[ap]m)$/g.test(startTime);
       const isEndDateValid = /^(1[0-2]|0?[1-9]):([0-5]?[0-9]) ([AP]M|[ap]m)$/g.test(endTime);
+      if (!name) {
+        return `Name of the Event Can't be Empty`;
+      }
+      if (!endTime) {
+        return `End time of the Event Can't be Empty`;
+      }
+      if (!startTime) {
+        return `Start time of the Event Can't be Empty`;
+      }
       if (!/[A-Za-z0-9]+$/g.test(name)) {
         return 'Invalid Name';
       }
