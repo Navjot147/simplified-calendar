@@ -217,7 +217,7 @@ const App = (function () {
       for (let i = 1; i <= numberOfDays; i++) {
         const cell = createDOMElement("span", daysContainer, {
           className: `day-cell`,
-          innerHTML: `<span>${i}</span>`
+          innerHTML: `<span class="date-text">${i}</span>`
         });
         const eventsContainer = createDOMElement("div", cell, { className: "events", id: `${year}${month}${i}events`, });
 
