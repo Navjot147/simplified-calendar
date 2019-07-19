@@ -87,7 +87,7 @@ const App = (function () {
       const { startTime, endTime, date, name } = values;
       const isStartDateValid = /^(1[0-2]|0?[1-9]):([0-5]?[0-9]) ([AP]M|[ap]m)$/g.test(startTime);
       const isEndDateValid = /^(1[0-2]|0?[1-9]):([0-5]?[0-9]) ([AP]M|[ap]m)$/g.test(endTime);
-      if (!name) {
+      if (!/[A-Za-z0-9]+$/g.test(name)) {
         return 'Invalid Name';
       }
       if (!isStartDateValid) {
@@ -125,6 +125,9 @@ const App = (function () {
       const errorMessage = _checkFormValid({ date: eventDate, startTime, endTime, name });
       if (errorMessage) {
         document.getElementById('genericError').innerHTML = errorMessage;
+        setTimeout(() => {
+          document.getElementById("genericError").innerHTML = "";
+        }, 3000);
         return;
       }
       const key = `${eventDate.getFullYear()}${eventDate.getMonth()}${eventDate.getDate()}`;
@@ -227,11 +230,13 @@ const App = (function () {
         cell.addEventListener("click", _showAddEventPopUp.bind(null, month, year, i));
       }
 
-      for (let i = 0; i < 7 - getLastDay(month, year); i++) {
-        createDOMElement("span", daysContainer, {
-          className: "day-cell",
-          innerHTML: `<span></span>`
-        });
+      if (getLastDay(month, year)) {
+        for (let i = 0; i < 7 - getLastDay(month, year); i++) {
+          createDOMElement("span", daysContainer, {
+            className: "day-cell",
+            innerHTML: `<span></span>`
+          });
+        }
       }
     }
 
